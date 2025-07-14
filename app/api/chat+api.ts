@@ -23,7 +23,6 @@ export async function POST(req: Request) {
       },
     });
   } catch (error) {
-    console.error("Chat API error:", error);
     return new Response("Internal server error", { status: 500 });
   }
 }

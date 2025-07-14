@@ -32,7 +32,6 @@ export default function App() {
         target: { value: input },
       };
       handleSubmit(event as any);
-      // Clear input after sending
       const clearEvent = {
         target: { value: "" },
         nativeEvent: { text: "" },
@@ -55,7 +54,7 @@ export default function App() {
 
   return (
     <SafeAreaView style={styles.container}>
-      {/* Header với các nút navigation */}
+      {/* Header */}
       <View style={styles.header}>
         <Link href="/ask" asChild>
           <TouchableOpacity style={styles.headerButton}>
@@ -115,7 +114,7 @@ export default function App() {
           )}
         </ScrollView>
 
-        {/* Input area với icon gửi */}
+        {/* Input area  */}
         <View style={styles.inputContainer}>
           <View style={styles.inputWrapper}>
             <TextInput

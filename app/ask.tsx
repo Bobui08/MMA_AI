@@ -30,7 +30,6 @@ export default function AskPage() {
     api: generateAPIUrl("/api/completion"),
     fetch: expoFetch as unknown as typeof globalThis.fetch,
     onError: (error) => {
-      console.error("Completion error:", error);
       Alert.alert("Error", "Failed to get AI response");
     },
     streamProtocol: "text",
@@ -43,7 +42,6 @@ export default function AskPage() {
       return;
     }
     handleSubmit(e);
-    // Clear input after submitting
     const clearEvent = {
       target: { value: "" },
     };

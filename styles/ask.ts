@@ -70,7 +70,7 @@ export const styles = StyleSheet.create({
   },
   responseScrollView: {
     flex: 1,
-    maxHeight: 200,
+    maxHeight: 300,
   },
   responseText: {
     fontSize: 16,

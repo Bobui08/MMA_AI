@@ -46,11 +46,9 @@ export default function ImagesPage() {
         throw new Error(errorData.error || "Failed to generate image");
       }
 
-      // Check if response is JSON or data URI
       const contentType = response.headers.get("content-type");
 
       if (contentType?.includes("application/json")) {
-        // Handle JSON response (URL format)
         const result = await response.json();
         if (result.url) {
           setImageUrl(result.url);
@@ -59,7 +57,6 @@ export default function ImagesPage() {
           setError(result.error);
         }
       } else {
-        // Handle data URI response
         const dataUri = await response.text();
         if (dataUri.startsWith("data:")) {
           setImageUrl(dataUri);
@@ -69,7 +66,6 @@ export default function ImagesPage() {
         }
       }
     } catch (e) {
-      console.error("Failed to generate image:", e);
       setError(e instanceof Error ? e.message : "Failed to generate image");
     } finally {
       setIsLoading(false);
@@ -77,10 +73,9 @@ export default function ImagesPage() {
   };
 
   const { input, handleInputChange } = useCompletion({
-    api: generateAPIUrl("/api/completion"), // Dummy API, we won't use this
+    api: generateAPIUrl("/api/completion"),
     fetch: expoFetch as unknown as typeof globalThis.fetch,
     onError: (error) => {
-      console.error("Image generation error:", error);
       setError("Failed to generate image");
       setImageUrl(null);
       Alert.alert("Error", "Failed to generate image");
@@ -94,7 +89,6 @@ export default function ImagesPage() {
       return;
     }
     generateImage(input);
-    // Clear input after submitting
     const clearEvent = {
       target: { value: "" },
     };
