@@ -94,6 +94,11 @@ export default function ImagesPage() {
       return;
     }
     generateImage(input);
+    // Clear input after submitting
+    const clearEvent = {
+      target: { value: "" },
+    };
+    handleInputChange(clearEvent as any);
   };
 
   return (

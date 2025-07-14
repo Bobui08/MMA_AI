@@ -43,6 +43,11 @@ export default function AskPage() {
       return;
     }
     handleSubmit(e);
+    // Clear input after submitting
+    const clearEvent = {
+      target: { value: "" },
+    };
+    handleInputChange(clearEvent as any);
   };
 
   return (

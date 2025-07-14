@@ -1,13 +1,14 @@
+import { styles } from "@/styles/index";
 import { generateAPIUrl } from "@/utils/api";
 import { useChat } from "@ai-sdk/react";
 import { Link } from "expo-router";
 import { fetch as expoFetch } from "expo/fetch";
 import {
-  Button,
   SafeAreaView,
   ScrollView,
   Text,
   TextInput,
+  TouchableOpacity,
   View,
 } from "react-native";
 
@@ -31,17 +32,21 @@ export default function App() {
         target: { value: input },
       };
       handleSubmit(event as any);
+      // Clear input after sending
+      const clearEvent = {
+        target: { value: "" },
+        nativeEvent: { text: "" },
+      };
+      handleInputChange(clearEvent as any);
     }
   };
 
   if (error) {
     return (
-      <SafeAreaView style={{ height: "100%", padding: 16 }}>
-        <Text style={{ color: "red", fontSize: 16, fontWeight: "bold" }}>
-          Connection Error:
-        </Text>
-        <Text style={{ marginTop: 8 }}>{error.message}</Text>
-        <Text style={{ marginTop: 8, fontSize: 12, color: "gray" }}>
+      <SafeAreaView style={styles.errorContainer}>
+        <Text style={styles.errorTitle}>Connection Error:</Text>
+        <Text style={styles.errorMessage}>{error.message}</Text>
+        <Text style={styles.errorHint}>
           Please check your network connection and try again.
         </Text>
       </SafeAreaView>
@@ -49,69 +54,97 @@ export default function App() {
   }
 
   return (
-    <SafeAreaView style={{ height: "100%" }}>
-      <Link href="/ask" asChild>
-        <Button title="Ask"></Button>
-      </Link>
-      <Link href="/images" asChild>
-        <Button title="Images"></Button>
-      </Link>
-      <View
-        style={{
-          height: "95%",
-          display: "flex",
-          flexDirection: "column",
-          paddingHorizontal: 8,
-        }}
-      >
-        <ScrollView style={{ flex: 1 }}>
+    <SafeAreaView style={styles.container}>
+      {/* Header với các nút navigation */}
+      <View style={styles.header}>
+        <Link href="/ask" asChild>
+          <TouchableOpacity style={styles.headerButton}>
+            <Text style={styles.headerButtonText}>ASK</Text>
+          </TouchableOpacity>
+        </Link>
+        <Link href="/images" asChild>
+          <TouchableOpacity style={styles.headerButton}>
+            <Text style={styles.headerButtonText}>IMAGES</Text>
+          </TouchableOpacity>
+        </Link>
+      </View>
+
+      {/* Chat container */}
+      <View style={styles.chatContainer}>
+        {/* Messages area */}
+        <ScrollView
+          style={styles.messagesContainer}
+          contentContainerStyle={{ paddingBottom: 16 }}
+          showsVerticalScrollIndicator={false}
+        >
           {messages.map((m) => (
-            <View key={m.id} style={{ marginVertical: 8 }}>
-              <View>
+            <View key={m.id} style={styles.messageWrapper}>
+              <View
+                style={[
+                  styles.messageContainer,
+                  m.role === "user" ? styles.userMessage : styles.aiMessage,
+                ]}
+              >
                 <Text
-                  style={{
-                    fontWeight: "bold",
-                    color: m.role === "user" ? "#007AFF" : "#34C759",
-                  }}
+                  style={[
+                    styles.messageHeader,
+                    m.role === "user"
+                      ? styles.userMessageHeader
+                      : styles.aiMessageHeader,
+                  ]}
                 >
                   {m.role === "user" ? "You" : "AI"}
                 </Text>
-                <Text style={{ marginTop: 4 }}>{m.content}</Text>
+                <Text
+                  style={[
+                    styles.messageText,
+                    m.role === "user"
+                      ? styles.userMessageText
+                      : styles.aiMessageText,
+                  ]}
+                >
+                  {m.content}
+                </Text>
               </View>
             </View>
           ))}
           {isGenerating && (
-            <View style={{ marginVertical: 8 }}>
-              <Text style={{ fontStyle: "italic", color: "#666" }}>
-                AI is typing...
-              </Text>
+            <View style={styles.typingIndicator}>
+              <Text style={styles.typingText}>AI is typing...</Text>
             </View>
           )}
         </ScrollView>
 
-        <View style={{ marginTop: 8 }}>
-          <TextInput
-            style={{
-              backgroundColor: "white",
-              padding: 12,
-              borderRadius: 8,
-              borderWidth: 1,
-              borderColor: "#ddd",
-            }}
-            placeholder="Type your message..."
-            value={input}
-            onChangeText={(text) => {
-              const event = {
-                target: { value: text },
-                nativeEvent: { text },
-              };
-              handleInputChange(event as any);
-            }}
-            onSubmitEditing={handleSendMessage}
-            editable={!isGenerating}
-            autoFocus={true}
-            returnKeyType="send"
-          />
+        {/* Input area với icon gửi */}
+        <View style={styles.inputContainer}>
+          <View style={styles.inputWrapper}>
+            <TextInput
+              style={styles.textInput}
+              placeholder="Type your message..."
+              value={input}
+              onChangeText={(text) => {
+                const event = {
+                  target: { value: text },
+                  nativeEvent: { text },
+                };
+                handleInputChange(event as any);
+              }}
+              editable={!isGenerating}
+              multiline={true}
+              textAlignVertical="top"
+              placeholderTextColor="#8e8e93"
+            />
+            <TouchableOpacity
+              style={[
+                styles.sendButton,
+                (!input.trim() || isGenerating) && styles.sendButtonDisabled,
+              ]}
+              onPress={handleSendMessage}
+              disabled={!input.trim() || isGenerating}
+            >
+              <Text style={styles.sendButtonText}>➤</Text>
+            </TouchableOpacity>
+          </View>
         </View>
       </View>
     </SafeAreaView>
