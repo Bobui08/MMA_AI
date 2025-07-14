@@ -1,203 +1,228 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#ffffff',
+    backgroundColor: "#f8f9fa",
   },
-  
+
   // Header styles
   header: {
-    flexDirection: 'row',
-    paddingHorizontal: 16,
-    paddingVertical: 12,
-    backgroundColor: '#f8f9fa',
-    borderBottomWidth: 1,
-    borderBottomColor: '#e9ecef',
-    elevation: 2,
-    shadowColor: '#000',
+    paddingHorizontal: 20,
+    paddingTop: 20,
+    paddingBottom: 10,
+    backgroundColor: "#f8f9fa",
+  },
+
+  profileSection: {
+    flexDirection: "row",
+    alignItems: "center",
+    marginBottom: 8,
+  },
+
+  avatar: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    backgroundColor: "#007AFF",
+    marginRight: 12,
+  },
+
+  greetingContainer: {
+    flex: 1,
+  },
+
+  greetingText: {
+    fontSize: 14,
+    color: "#666",
+    marginBottom: 2,
+  },
+
+  nameText: {
+    fontSize: 16,
+    fontWeight: "600",
+    color: "#333",
+  },
+
+  menuButton: {
+    padding: 8,
+  },
+
+  menuIcon: {
+    fontSize: 20,
+    color: "#333",
+  },
+
+  // Main content styles
+  mainContent: {
+    flex: 1,
+    paddingHorizontal: 20,
+  },
+
+  titleText: {
+    fontSize: 28,
+    fontWeight: "bold",
+    color: "#333",
+    marginBottom: 30,
+    textAlign: "left",
+  },
+
+  searchContainer: {
+    backgroundColor: "#fff",
+    borderRadius: 25,
+    paddingHorizontal: 20,
+    paddingVertical: 15,
+    marginBottom: 30,
+    flexDirection: "row",
+    alignItems: "center",
+    shadowColor: "#000",
     shadowOffset: {
       width: 0,
-      height: 1,
+      height: 2,
     },
     shadowOpacity: 0.1,
-    shadowRadius: 2,
+    shadowRadius: 4,
+    elevation: 3,
   },
-  
-  headerButton: {
+
+  searchIcon: {
+    fontSize: 18,
+    color: "#999",
     marginRight: 12,
-    paddingHorizontal: 20,
-    paddingVertical: 8,
-    backgroundColor: '#007AFF',
+  },
+
+  searchInput: {
+    flex: 1,
+    fontSize: 16,
+    color: "#333",
+  },
+
+  cardsContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    marginBottom: 40,
+  },
+
+  card: {
+    flex: 1,
+    backgroundColor: "#fff",
     borderRadius: 20,
-    minWidth: 80,
+    padding: 20,
+    marginHorizontal: 8,
+    alignItems: "center",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 4,
+    },
+    shadowOpacity: 0.1,
+    shadowRadius: 8,
+    elevation: 5,
   },
-  
-  headerButtonText: {
-    color: '#ffffff',
-    fontWeight: '600',
-    textAlign: 'center',
-    fontSize: 14,
+
+  cardIcon: {
+    width: 50,
+    height: 50,
+    borderRadius: 25,
+    marginBottom: 15,
+    justifyContent: "center",
+    alignItems: "center",
   },
-  
-  // Chat container styles
-  chatContainer: {
-    flex: 1,
-    paddingHorizontal: 16,
-    paddingTop: 8,
+
+  askIcon: {
+    backgroundColor: "#E8F4FD",
   },
-  
-  // Messages styles
-  messagesContainer: {
-    flex: 1,
-    paddingBottom: 8,
+
+  imageIcon: {
+    backgroundColor: "#FFF0F5",
   },
-  
-  messageWrapper: {
-    marginVertical: 6,
+
+  chatIcon: {
+    backgroundColor: "#E8F8F5",
   },
-  
-  messageContainer: {
-    maxWidth: '85%',
-    padding: 12,
-    borderRadius: 16,
-    marginVertical: 2,
-  },
-  
-  userMessage: {
-    backgroundColor: '#007AFF',
-    alignSelf: 'flex-end',
-    borderBottomRightRadius: 4,
-  },
-  
-  aiMessage: {
-    backgroundColor: '#f1f3f4',
-    alignSelf: 'flex-start',
-    borderBottomLeftRadius: 4,
-  },
-  
-  messageHeader: {
-    fontWeight: '600',
-    fontSize: 12,
-    marginBottom: 4,
-    textTransform: 'uppercase',
-    letterSpacing: 0.5,
-  },
-  
-  userMessageHeader: {
-    color: '#ffffff',
-    opacity: 0.8,
-  },
-  
-  aiMessageHeader: {
-    color: '#34C759',
-  },
-  
-  messageText: {
+
+  cardTitle: {
     fontSize: 16,
-    lineHeight: 22,
-  },
-  
-  userMessageText: {
-    color: '#ffffff',
-  },
-  
-  aiMessageText: {
-    color: '#1d1d1f',
-  },
-  
-  typingIndicator: {
-    marginVertical: 8,
-    paddingHorizontal: 16,
-    paddingVertical: 12,
-    backgroundColor: '#f1f3f4',
-    borderRadius: 16,
-    alignSelf: 'flex-start',
-    maxWidth: '70%',
-  },
-  
-  typingText: {
-    fontStyle: 'italic',
-    color: '#8e8e93',
-    fontSize: 14,
-  },
-  
-  // Input area styles
-  inputContainer: {
-    paddingTop: 12,
-    paddingBottom: 16,
-    paddingHorizontal: 4,
-    backgroundColor: '#ffffff',
-    borderTopWidth: 1,
-    borderTopColor: '#e9ecef',
-  },
-  
-  inputWrapper: {
-    flexDirection: 'row',
-    alignItems: 'flex-end',
-    backgroundColor: '#f8f9fa',
-    borderRadius: 24,
-    borderWidth: 1,
-    borderColor: '#e9ecef',
-    paddingHorizontal: 16,
-    paddingVertical: 8,
-    minHeight: 48,
-  },
-  
-  textInput: {
-    flex: 1,
-    fontSize: 16,
-    lineHeight: 20,
-    color: '#1d1d1f',
-    maxHeight: 120,
-    paddingVertical: 8,
-    paddingRight: 12,
-  },
-  
-  sendButton: {
-    width: 36,
-    height: 36,
-    borderRadius: 18,
-    backgroundColor: '#007AFF',
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginLeft: 8,
-  },
-  
-  sendButtonDisabled: {
-    backgroundColor: '#c7c7cc',
-  },
-  
-  sendButtonText: {
-    color: '#ffffff',
-    fontSize: 18,
-    fontWeight: '600',
-  },
-  
-  // Error styles
-  errorContainer: {
-    flex: 1,
-    padding: 16,
-    justifyContent: 'center',
-  },
-  
-  errorTitle: {
-    color: '#ff3b30',
-    fontSize: 18,
-    fontWeight: 'bold',
+    fontWeight: "600",
+    color: "#333",
+    textAlign: "center",
     marginBottom: 8,
   },
-  
-  errorMessage: {
-    fontSize: 16,
-    color: '#1d1d1f',
-    marginBottom: 8,
-    lineHeight: 22,
+
+  cardSubtitle: {
+    fontSize: 13,
+    color: "#666",
+    textAlign: "center",
   },
-  
-  errorHint: {
-    fontSize: 14,
-    color: '#8e8e93',
-    lineHeight: 20,
+
+  // Bottom section styles
+  bottomSection: {
+    backgroundColor: "#1C1C1E",
+    marginHorizontal: 20,
+    marginBottom: 30,
+    borderRadius: 25,
+    paddingVertical: 30,
+    paddingHorizontal: 20,
+    alignItems: "center",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 8,
+    },
+    shadowOpacity: 0.3,
+    shadowRadius: 12,
+    elevation: 8,
+  },
+
+  startChatIconButton: {
+    backgroundColor: "#00D4AA",
+    width: 60,
+    height: 60,
+    borderRadius: 30,
+    justifyContent: "center",
+    alignItems: "center",
+    marginBottom: 20,
+    shadowColor: "#00D4AA",
+    shadowOffset: {
+      width: 0,
+      height: 4,
+    },
+    shadowOpacity: 0.4,
+    shadowRadius: 8,
+    elevation: 6,
+  },
+
+  startChatIconText: {
+    fontSize: 24,
+  },
+
+  startNewChatTitle: {
+    color: "#FFFFFF",
+    fontSize: 20,
+    fontWeight: "600",
+    marginBottom: 20,
+  },
+
+  startChatButton: {
+    backgroundColor: "#00D4AA",
+    borderRadius: 25,
+    paddingVertical: 15,
+    paddingHorizontal: 40,
+    width: "100%",
+    alignItems: "center",
+    shadowColor: "#00D4AA",
+    shadowOffset: {
+      width: 0,
+      height: 4,
+    },
+    shadowOpacity: 0.3,
+    shadowRadius: 8,
+    elevation: 5,
+  },
+
+  startChatButtonText: {
+    color: "#1C1C1E",
+    fontSize: 16,
+    fontWeight: "600",
   },
 });
