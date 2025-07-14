@@ -1,0 +1,137 @@
+import { StyleSheet } from "react-native";
+
+export const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#f5f5f5",
+  },
+  content: {
+    flex: 1,
+    padding: 20,
+  },
+  header: {
+    marginBottom: 30,
+    alignItems: "center",
+  },
+  title: {
+    fontSize: 28,
+    fontWeight: "bold",
+    color: "#333",
+    marginBottom: 8,
+  },
+  subtitle: {
+    fontSize: 16,
+    color: "#666",
+    textAlign: "center",
+  },
+  inputContainer: {
+    marginBottom: 20,
+  },
+  textInput: {
+    backgroundColor: "#fff",
+    borderRadius: 12,
+    padding: 16,
+    fontSize: 16,
+    color: "#333",
+    borderWidth: 1,
+    borderColor: "#ddd",
+    minHeight: 100,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.1,
+    shadowRadius: 3.84,
+    elevation: 5,
+  },
+  imageContainer: {
+    flex: 1,
+    marginBottom: 20,
+    backgroundColor: "#fff",
+    borderRadius: 12,
+    padding: 16,
+    borderWidth: 1,
+    borderColor: "#ddd",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.1,
+    shadowRadius: 3.84,
+    elevation: 5,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  generatedImage: {
+    width: "100%",
+    height: 300,
+    borderRadius: 8,
+    resizeMode: "contain",
+  },
+  revisedPromptText: {
+    fontSize: 12,
+    color: "#666",
+    textAlign: "center",
+    fontStyle: "italic",
+    marginTop: 8,
+    paddingHorizontal: 8,
+  },
+  placeholderText: {
+    fontSize: 16,
+    color: "#999",
+    textAlign: "center",
+    fontStyle: "italic",
+  },
+  loadingText: {
+    fontSize: 16,
+    color: "#007AFF",
+    textAlign: "center",
+    fontStyle: "italic",
+  },
+  errorText: {
+    fontSize: 16,
+    color: "#FF3B30",
+    textAlign: "center",
+    marginBottom: 10,
+  },
+  buttonContainer: {
+    gap: 12,
+  },
+  generateButton: {
+    backgroundColor: "#007AFF",
+    borderRadius: 12,
+    padding: 16,
+    alignItems: "center",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.1,
+    shadowRadius: 3.84,
+    elevation: 5,
+  },
+  generateButtonDisabled: {
+    backgroundColor: "#ccc",
+  },
+  generateButtonText: {
+    color: "#fff",
+    fontSize: 18,
+    fontWeight: "600",
+  },
+  backButton: {
+    backgroundColor: "transparent",
+    borderRadius: 12,
+    padding: 16,
+    alignItems: "center",
+    borderWidth: 1,
+    borderColor: "#ddd",
+  },
+  backButtonText: {
+    color: "#666",
+    fontSize: 16,
+    fontWeight: "500",
+  },
+});
