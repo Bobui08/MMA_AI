@@ -6,51 +6,28 @@ export const styles = StyleSheet.create({
     backgroundColor: "#f8f9fa",
   },
 
-  // Header styles
-  header: {
-    paddingHorizontal: 20,
-    paddingTop: 20,
-    paddingBottom: 10,
-    backgroundColor: "#f8f9fa",
-  },
-
-  profileSection: {
+  // Navigation Header styles
+  navHeader: {
     flexDirection: "row",
     alignItems: "center",
-    marginBottom: 8,
+    paddingHorizontal: 20,
+    paddingTop: 20,
+    paddingBottom: 15,
+    backgroundColor: "#f8f9fa",
+    borderBottomWidth: 1,
+    borderBottomColor: "#e9ecef",
   },
 
-  avatar: {
-    width: 40,
-    height: 40,
-    borderRadius: 20,
-    backgroundColor: "#007AFF",
-    marginRight: 12,
-  },
-
-  greetingContainer: {
+  pageTitle: {
     flex: 1,
-  },
-
-  greetingText: {
-    fontSize: 14,
-    color: "#666",
-    marginBottom: 2,
-  },
-
-  nameText: {
-    fontSize: 16,
+    fontSize: 20,
     fontWeight: "600",
     color: "#333",
+    textAlign: "center",
   },
 
-  menuButton: {
-    padding: 8,
-  },
-
-  menuIcon: {
-    fontSize: 20,
-    color: "#333",
+  headerSpacer: {
+    width: 80,
   },
 
   // Main content styles
