@@ -50,3 +50,28 @@ declare module "web-streams-polyfill" {
     readonly writable: WritableStream<I>;
   }
 }
+
+// Mood Entry Types
+export interface MoodEntry {
+  id: number;
+  date: string;
+  mood: string;
+  text: string;
+  highlighted: boolean;
+}
+
+export interface MoodState {
+  entries: MoodEntry[];
+  loading: boolean;
+  error: string | null;
+  filters: {
+    keyword: string;
+    dateFrom: string;
+    dateTo: string;
+    selectedMood: string;
+  };
+}
+
+export interface RootState {
+  mood: MoodState;
+}
